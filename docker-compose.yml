@@ -1,0 +1,18 @@
+version: '3'
+services:
+  confluence:
+    image: konan/confluence
+    container_name: confluence
+    privileged: true
+    ports:
+      - 8081:8090
+    volumes:
+      - ./data:/var/atlassian/confluence
+    environment:
+      TZ: "Asia/Seoul"
+    networks:
+      confluence_net:
+networks:
+  confluence_net:
+    ipam:
+      driver: default
